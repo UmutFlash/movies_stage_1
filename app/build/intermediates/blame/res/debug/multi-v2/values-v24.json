@@ -4,16 +4,6 @@
             "outputFile": "/Users/Umut/Desktop/Popular_Movies_Stage_1/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/aeedf1a7ce7d2f935b40fc89efd490ed/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
                     "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/4b9d942cafbaee0444d2b5b48550339e/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -28,6 +18,16 @@
                         "startOffsets": "347,413,474,540",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
+                    }
+                },
+                {
+                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/aff996da99fc211edffb4c7c8e4de2ac/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]

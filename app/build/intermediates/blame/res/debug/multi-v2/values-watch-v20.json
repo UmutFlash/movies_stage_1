@@ -4,7 +4,7 @@
             "outputFile": "/Users/Umut/Desktop/Popular_Movies_Stage_1/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/aeedf1a7ce7d2f935b40fc89efd490ed/res/values-watch-v20/values-watch-v20.xml",
+                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/aff996da99fc211edffb4c7c8e4de2ac/res/values-watch-v20/values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

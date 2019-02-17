@@ -4,7 +4,7 @@
             "outputFile": "/Users/Umut/Desktop/Popular_Movies_Stage_1/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/aeedf1a7ce7d2f935b40fc89efd490ed/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "/Users/Umut/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/aff996da99fc211edffb4c7c8e4de2ac/res/values-xlarge-v4/values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
