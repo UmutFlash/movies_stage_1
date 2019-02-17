@@ -22,14 +22,8 @@ public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
     private final static String SORT_BY_PARAM = "sort_by";
     private final static String API_KEY_PARAM = "api_key";
     private final String LOG_TAG = FetchMovies.class.getSimpleName();
-
-    private CallbackPostExecute mCallbackPostExecute;
-
-    interface CallbackPostExecute {
-        void onFetchMoviesTask(Movie[] movies);
-    }
-
     private final String mApiKey;
+    private CallbackPostExecute mCallbackPostExecute;
 
     FetchMovies(String apiKey, CallbackPostExecute callbackPostExecute) {
         super();
@@ -114,7 +108,6 @@ public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
         return movies;
     }
 
-
     private URL getApiUrl(String[] parameters) throws MalformedURLException {
 
         Uri builtUri = Uri.parse(TMDB_BASE_URL).buildUpon()
@@ -130,6 +123,10 @@ public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
 
         super.onPostExecute(movies);
         mCallbackPostExecute.onFetchMoviesTask(movies);
+    }
+
+    interface CallbackPostExecute {
+        void onFetchMoviesTask(Movie[] movies);
     }
 
 }

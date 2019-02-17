@@ -27,7 +27,7 @@ public class DetailsViewActivity extends AppCompatActivity {
         Picasso.get()
                 .load(movie.getmPosterPath())
                 .resize(185,
-                       278)
+                        278)
                 .placeholder(R.drawable.ic_picture)
                 .into(ivPoster);
 

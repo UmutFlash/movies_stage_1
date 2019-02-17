@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -17,7 +18,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="5dp"
             android:textColor="#ffffff"
-            android:textSize="@dimen/abc_text_size_headline_material" />
+            android:textSize="@dimen/abc_text_size_headline_material"
+            tools:ignore="PrivateResource" />
 
     </LinearLayout>
 
@@ -47,14 +49,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:textSize="@dimen/abc_text_size_large_material" />
+                android:textSize="@dimen/abc_text_size_large_material"
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/tv_vote_average"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/abc_text_size_medium_material"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="PrivateResource" />
         </LinearLayout>
 
     </LinearLayout>

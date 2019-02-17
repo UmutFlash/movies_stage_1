@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-public class MoviesAdapter  extends ArrayAdapter<Movie> {
+public class MoviesAdapter extends ArrayAdapter<Movie> {
 
 
     MoviesAdapter(Activity context, Movie[] movieCollection) {
@@ -32,11 +32,10 @@ public class MoviesAdapter  extends ArrayAdapter<Movie> {
 
         Picasso.get().
                 load(movie != null ? movie.getmPosterPath() : null)
-                .resize(185,278).into(imageView);
+                .resize(185, 278).into(imageView);
 
         return convertView;
     }
-
 
 
 }

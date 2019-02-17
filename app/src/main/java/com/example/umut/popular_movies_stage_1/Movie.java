@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class Movie implements Parcelable {
 
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
     private static final String HTTPS_IMAGE_TMDB = "https://image.tmdb.org/t/p/w185";
     private String mOriginalTitle;
     private String mPosterPath;
@@ -12,7 +23,8 @@ public class Movie implements Parcelable {
     private Double mVoteAverage;
     private String mReleaseDate;
 
-    Movie(){}
+    Movie() {
+    }
 
     private Movie(Parcel in) {
         mOriginalTitle = in.readString();
@@ -85,18 +97,6 @@ public class Movie implements Parcelable {
         }
         parcel.writeString(mReleaseDate);
     }
-
-    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
-        @Override
-        public Movie createFromParcel(Parcel in) {
-            return new Movie(in);
-        }
-
-        @Override
-        public Movie[] newArray(int size) {
-            return new Movie[size];
-        }
-    };
 
 }
 

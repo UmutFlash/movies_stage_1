@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-public class MainActivityFragment extends Fragment implements FetchMovies.CallbackPostExecute{
+public class MainActivityFragment extends Fragment implements FetchMovies.CallbackPostExecute {
 
 
     public static final String MOVIE = "MOVIE";
@@ -30,9 +30,9 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
 
         mGridView = (GridView) rootView.findViewById(R.id.gridview);
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             getMoviesFromTMDb(VOTE_AVERAGE_DESC);
-        }else {
+        } else {
             Parcelable[] parcelableMovies = savedInstanceState.getParcelableArray(MOVIE);
             if (parcelableMovies != null) {
                 Movie[] movieCollection = new Movie[parcelableMovies.length];
