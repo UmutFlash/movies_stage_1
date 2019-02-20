@@ -99,7 +99,7 @@ public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
             movies[i] = new Movie();
             JSONObject movieData = resultsArray.getJSONObject(i);
 
-            movies[i].setmOriginalTitle(movieData.getString("original_title"));
+            movies[i].setmOriginalTitle(movieData.getString("title"));
             movies[i].setmPosterPath(movieData.getString("poster_path"));
             movies[i].setmOverview(movieData.getString("overview"));
             movies[i].setmVoteAverage(movieData.getDouble("vote_average"));

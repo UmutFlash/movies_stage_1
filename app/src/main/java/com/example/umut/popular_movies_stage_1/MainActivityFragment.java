@@ -17,8 +17,8 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
 
     public static final String MOVIE = "MOVIE";
     private static final String APIKEY = "";
-    private static final String VOTE_AVERAGE_DESC = "vote_average.desc";
-    private static final String POPULARITY_DESC = "popularity.desc";
+    private static final String TOP_RATED = "top_rated?";
+    private static final String POPULARITY = "popular?";
 
     private GridView mGridView;
 
@@ -31,7 +31,7 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
         mGridView = (GridView) rootView.findViewById(R.id.gridview);
 
         if (savedInstanceState == null) {
-            getMoviesFromTMDb(VOTE_AVERAGE_DESC);
+            getMoviesFromTMDb(TOP_RATED);
         } else {
             Parcelable[] parcelableMovies = savedInstanceState.getParcelableArray(MOVIE);
             if (parcelableMovies != null) {
@@ -64,6 +64,17 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
     }
 
     @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Movie[] movies = new Movie[mGridView.getCount()];
+        for(int i = 0; i < mGridView.getCount(); i++){
+            movies[i] = (Movie) mGridView.getItemAtPosition(i);
+        }
+        outState.putParcelableArray(MOVIE, movies);
+    }
+
+    @Override
     public void onFetchMoviesTask(Movie[] movies) {
 
         mGridView.setAdapter(new MoviesAdapter(getActivity(), movies));
@@ -75,11 +86,11 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
         int id = item.getItemId();
 
         if (id == R.id.action_avarage) {
-            getMoviesFromTMDb(VOTE_AVERAGE_DESC);
+            getMoviesFromTMDb(TOP_RATED);
             return true;
         }
         if (id == R.id.action_pupolar) {
-            getMoviesFromTMDb(POPULARITY_DESC);
+            getMoviesFromTMDb(POPULARITY);
             return true;
         }
 
