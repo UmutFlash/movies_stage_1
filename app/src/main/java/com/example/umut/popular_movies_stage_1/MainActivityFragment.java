@@ -1,10 +1,15 @@
 package com.example.umut.popular_movies_stage_1;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,9 +21,9 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
 
 
     public static final String MOVIE = "MOVIE";
-    private static final String APIKEY = "";
-    private static final String TOP_RATED = "top_rated?";
-    private static final String POPULARITY = "popular?";
+    private static final String APIKEY = "b4f4470bb291ef6088ecd080afe68221";
+    private static final String TOP_RATED = "top_rated";
+    private static final String POPULARITY = "popular";
 
     private GridView mGridView;
 
@@ -31,7 +36,7 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
         mGridView = (GridView) rootView.findViewById(R.id.gridview);
 
         if (savedInstanceState == null) {
-            getMoviesFromTMDb(TOP_RATED);
+            getMoviesFromTMDb(POPULARITY);
         } else {
             Parcelable[] parcelableMovies = savedInstanceState.getParcelableArray(MOVIE);
             if (parcelableMovies != null) {
@@ -59,8 +64,14 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
 
     private void getMoviesFromTMDb(String sortMethod) {
 
-        FetchMovies movieTask = new FetchMovies(APIKEY, this);
-        movieTask.execute(sortMethod);
+        if(isNetworkAvailable()) {
+            FetchMovies movieTask = new FetchMovies(APIKEY, this);
+            movieTask.execute(sortMethod);
+        }else{
+            AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+            alertDialog.setTitle(getString(R.string.network_error)); alertDialog.setMessage(getString(R.string.no_network));
+            alertDialog.show();
+        }
     }
 
     @Override
@@ -95,5 +106,13 @@ public class MainActivityFragment extends Fragment implements FetchMovies.Callba
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 }

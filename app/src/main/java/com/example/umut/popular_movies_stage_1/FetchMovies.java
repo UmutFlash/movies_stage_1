@@ -18,8 +18,7 @@ import java.net.URL;
 
 public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
 
-    private final static String TMDB_BASE_URL = "https://api.themoviedb.org/3/discover/movie?";
-    private final static String SORT_BY_PARAM = "sort_by";
+    private final static String TMDB_BASE_URL = "https://api.themoviedb.org/3/movie/";
     private final static String API_KEY_PARAM = "api_key";
     private final String LOG_TAG = FetchMovies.class.getSimpleName();
     private final String mApiKey;
@@ -111,7 +110,7 @@ public class FetchMovies extends AsyncTask<String, Void, Movie[]> {
     private URL getApiUrl(String[] parameters) throws MalformedURLException {
 
         Uri builtUri = Uri.parse(TMDB_BASE_URL).buildUpon()
-                .appendQueryParameter(SORT_BY_PARAM, parameters[0])
+                .appendPath(parameters[0])
                 .appendQueryParameter(API_KEY_PARAM, mApiKey)
                 .build();
 
